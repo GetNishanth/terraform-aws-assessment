@@ -1,5 +1,4 @@
 # Development Environment - Variable Values
-# This file contains environment-specific configuration
 
 aws_region   = "us-east-1"
 environment  = "dev"
@@ -12,7 +11,7 @@ private_subnet_cidrs = ["10.0.10.0/24", "10.0.11.0/24"]
 
 # Network Settings
 enable_nat_gateway = true
-single_nat_gateway = true  # Cost optimization: use single NAT for dev
+single_nat_gateway = true
 
 # EC2 Configuration
 instance_type    = "t3.micro"
@@ -20,6 +19,5 @@ instance_count   = 1
 root_volume_size = 20
 
 # S3 Configuration
-# IMPORTANT: Change this to a globally unique bucket name
-log_bucket_name    = "my-terraform-dev-logs-12345"  # Replace with unique name
+log_bucket_name    = "eisai-dev-logs"
 log_retention_days = 90
