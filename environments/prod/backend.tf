@@ -3,18 +3,13 @@
 
 terraform {
   backend "s3" {
-    # IMPORTANT: Update these values with your actual S3 bucket and DynamoDB table
-    # Use SEPARATE state from dev for isolation
     
-    bucket         = "your-terraform-state-bucket"  # Replace with your bucket name
-    key            = "prod/terraform.tfstate"       # Different key from dev
+    bucket         = "s3_eisai_prod" 
+    key            = "prod/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "terraform-state-lock"  # Replace with your table name
-    
-    # PRODUCTION SECURITY: Enable MFA delete on state bucket
-    # PRODUCTION SECURITY: Use IAM role for access, not access keys
-    # role_arn = "arn:aws:iam::ACCOUNT_ID:role/TerraformStateProdRole"
+    dynamodb_table = "terraform-state-lock_prod"
+   
   }
 }
 

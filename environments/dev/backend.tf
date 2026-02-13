@@ -3,17 +3,13 @@
 
 terraform {
   backend "s3" {
-    # IMPORTANT: Update these values with your actual S3 bucket and DynamoDB table
-    # These resources must be created manually before running terraform init
     
-    bucket         = "your-terraform-state-bucket"  # Replace with your bucket name
+    bucket         = "s3_eisai_dev"
     key            = "dev/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "terraform-state-lock"  # Replace with your table name
+    dynamodb_table = "terraform-state-lock_dev"
     
-    # Optional: Use role-based access instead of access keys
-    # role_arn = "arn:aws:iam::ACCOUNT_ID:role/TerraformStateRole"
   }
 }
 
